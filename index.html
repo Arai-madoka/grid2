@@ -30,8 +30,8 @@
  
         //光源
         dirLight = new THREE.SpotLight(0xffffff,1.5);//color,強度
-            dirLight.position.set(-30, 40, 30);
-            scene.add(dirLight);
+        dirLight.position.set(-30, 40, 30);
+        scene.add(dirLight);
  
         //レンダラー
         renderer = new THREE.WebGLRenderer({antialias:true});
@@ -50,7 +50,7 @@
         scene.add(gridHelper);
  
         document.body.appendChild(VRButton.createButton(renderer));
-        //document.getElementById("WebGL-output").appendChild(renderer.domElement);
+        
     }
     function animate() {
         renderer.render(scene, camera);
@@ -59,5 +59,5 @@
 </script>
  
 </body>
-	</html>
+</html>	
 	
