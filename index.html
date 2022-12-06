@@ -53,6 +53,10 @@
  
         document.body.appendChild(VRButton.createButton(renderer));
     }
+    function animate() {
+        renderer.render(scene, camera);
+    }
+    renderer.setAnimationLoop(animate);
 </script>
 </body>
     </html>
