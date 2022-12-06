@@ -44,10 +44,10 @@
         renderer.xr.enabled = true; // レンダラーのXRを有効化
         document.body.appendChild(renderer.domElement);
         
-        // 滑らかにカメラコントローラーを制御する
+        // カメラコントローラー
         controls = new OrbitControls(camera, document.body);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.2;
+        controls.target.set( 0, 1.6, 0 );
+	controls.update();
  
         // gridHelper 
         gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
