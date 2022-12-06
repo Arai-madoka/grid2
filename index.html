@@ -41,6 +41,7 @@
         renderer = new THREE.WebGLRenderer({antialias:true});
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize(window.innerWidth, window.innerHeight);  
+	renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.xr.enabled = true; // レンダラーのXRを有効化
         document.body.appendChild(renderer.domElement);
         
