@@ -28,6 +28,8 @@
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         //カメラセット
         camera.position.set(20, 30, 50);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+	
  
         //光源
         dirLight = new THREE.SpotLight(0xffffff,1.5);//color,強度
