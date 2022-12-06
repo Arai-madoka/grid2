@@ -45,7 +45,7 @@
         document.body.appendChild(renderer.domElement);
         
         // カメラコントローラー
-        controls = new OrbitControls(camera, document.body);
+        controls = new PerspectiveCamera(camera, document.body);
         controls.target.set( 0, 1.6, 0 );
 	controls.update();
  
