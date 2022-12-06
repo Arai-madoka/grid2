@@ -11,6 +11,8 @@
     import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js';
     import { VRButton } from 'https://unpkg.com/three@0.126.1/examples/jsm/webxr/VRButton.js';
     
+    window.addEventListener('load',function(){init();});
+    
     let camera,scene,renderer,controls;
     let dirLight;
     let gridHelper;
@@ -28,9 +30,7 @@
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         //カメラセット
         camera.position.set(20, 30, 50);
-	camera.lookAt(new THREE.Vector3(0, 0, 0));
-	
- 
+	scene.add(camera);
         //光源
         dirLight = new THREE.SpotLight(0xffffff,1.5);//color,強度
         dirLight.position.set(-30, 40, 30);
