@@ -45,13 +45,13 @@
 				metalness: 0.0
 			} );
         const floor = new THREE.Mesh( floorGometry, floorMaterial );
-		floor.rotation.x = - Math.PI / 2;
-		scene.add( floor );
+	floor.rotation.x = - Math.PI / 2;
+	scene.add( floor );
         //ペイント
         const painter1 = new TubePainter();
-		scene.add( painter1.mesh );
-		const painter2 = new TubePainter();
-		scene.add( painter2.mesh );
+	scene.add( painter1.mesh );
+	const painter2 = new TubePainter();
+	scene.add( painter2.mesh );
         
         //レンダラー
         renderer = new THREE.WebGLRenderer();
@@ -66,8 +66,8 @@
         const controls = new OrbitControls(camera, document.body);
         //controls.enableDamping = true;
         //controls.dampingFactor = 0.2;
-		controls.target.set( 0, 1.6, 0 );
-		controls.update();
+	controls.target.set( 0, 1.6, 0 );
+	controls.update();
  
         // gridHelper 
         gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
