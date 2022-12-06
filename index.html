@@ -11,9 +11,11 @@
     import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js';
     import { VRButton } from 'https://unpkg.com/three@0.126.1/examples/jsm/webxr/VRButton.js';
     
-    let camera,scene,renderer;
+    let camera,scene,renderer,controls;
     let dirLight;
     let gridHelper;
+    let controller1, controller2;
+    const cursor = new THREE.Vector3();
     init();
     animate();
  
@@ -26,32 +28,49 @@
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         //カメラセット
         camera.position.set(20, 30, 50);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
  
         //光源
         dirLight = new THREE.SpotLight(0xffffff,1.5);//color,強度
-            dirLight.position.set(-30, 40, 30);
-            scene.add(dirLight);
+        dirLight.position.set(-30, 40, 30);
+        scene.add(dirLight);
  
         //レンダラー
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({antialias:true});
+        renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize(window.innerWidth, window.innerHeight);  
         renderer.xr.enabled = true; // レンダラーのXRを有効化
         document.body.appendChild(renderer.domElement);
         
         // 滑らかにカメラコントローラーを制御する
-        const controls = new OrbitControls(camera, document.body);
+        controls = new OrbitControls(camera, document.body);
         controls.enableDamping = true;
         controls.dampingFactor = 0.2;
  
         // gridHelper 
         gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
         scene.add(gridHelper);
+        function onSelectStart() {
+				this.userData.isSelecting = true;
+				}
+		function onSelectEnd() {
+				this.userData.isSelecting = false;
+				}
+        //コントローラー
+        controller1 = renderer.xr.getController( 0 );
+        controller1.addEventListener( 'selectstart', onSelectStart );
+		controller1.addEventListener( 'selectend', onSelectEnd );
+        scene.add( controller1 );
+        
+        controller2 = renderer.xr.getController( 1 );
+		controller2.addEventListener( 'selectstart', onSelectStart );
+		controller2.addEventListener( 'selectend', onSelectEnd );
+		scene.add( controller2 );
  
         document.body.appendChild(VRButton.createButton(renderer));
-        //document.getElementById("WebGL-output").appendChild(renderer.domElement);
     }
     function animate() {
+        handleCotroller(controller1);
+        handleCotroller(controller2);
         renderer.render(scene, camera);
     }
     renderer.setAnimationLoop(animate);
