@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>grid2/VR</title>
+    <title>grid/VR</title>
 </head>
 <body>
     <div id="WebGL-output"></div>
@@ -14,11 +14,11 @@
     let camera,scene,renderer;
     let dirLight;
     let gridHelper;
-    
     init();
     animate();
  
     function init() {
+ 
         //シーンの作成
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x222222 );
@@ -30,8 +30,8 @@
  
         //光源
         dirLight = new THREE.SpotLight(0xffffff,1.5);//color,強度
-        dirLight.position.set(-30, 40, 30);
-        scene.add(dirLight);
+            dirLight.position.set(-30, 40, 30);
+            scene.add(dirLight);
  
         //レンダラー
         renderer = new THREE.WebGLRenderer({antialias:true});
@@ -41,9 +41,9 @@
         document.body.appendChild(renderer.domElement);
         
         // 滑らかにカメラコントローラーを制御する
-        controls = new OrbitControls( camera, document.body );
-	controls.target.set( 0, 1.6, 0 );
-	controls.update();
+        const controls = new OrbitControls(camera, document.body);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.2;
  
         // gridHelper 
         gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
@@ -59,4 +59,5 @@
 </script>
  
 </body>
-  </html>
+	</html>
+	
