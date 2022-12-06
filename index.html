@@ -14,13 +14,11 @@
     let camera,scene,renderer;
     let dirLight;
     let gridHelper;
-    const cursor = new THREE.Vector3();
+    
     init();
     animate();
  
     function init() {
-        const container = document.createElement( 'div' );
-	    document.body.appendChild(container);
         //シーンの作成
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x222222 );
@@ -43,9 +41,9 @@
         document.body.appendChild(renderer.domElement);
         
         // 滑らかにカメラコントローラーを制御する
-        controls = new OrbitControls( camera, container );
-	      controls.target.set( 0, 1.6, 0 );
-	      controls.update();
+        controls = new OrbitControls( camera, document.body );
+	controls.target.set( 0, 1.6, 0 );
+	controls.update();
  
         // gridHelper 
         gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
