@@ -48,7 +48,7 @@
         controls.dampingFactor = 0.2;
  
         // gridHelper 
-        gridHelper = new THREE.GridHelper(20,5) //大きさ・分割数・センタラインcolor・マスカラ―
+        const gridHelper = new THREE.GridHelper(20,5) //大きさ・分割数・センタラインcolor・マスカラ―
         scene.add(gridHelper);
  
         document.body.appendChild(VRButton.createButton(renderer));
