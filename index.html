@@ -46,29 +46,29 @@
         controls.enableDamping = true;
         controls.dampingFactor = 0.2;
 	    
-        const grid1= new THREE.GridHelper(1,5,0xffffff,0xffffff)
+        const grid1= new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid1.rotation.x=0;grid1.position.y=1.5;grid1.position.z=-2;
         scene.add(grid1);
-        const grid2= new THREE.GridHelper(1,5,0xffffff,0xffffff)
+        const grid2= new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid2.rotation.x=0;grid2.position.y=1.7;grid2.position.z=-2;
         scene.add(grid2);
-	  const grid3= new THREE.GridHelper(1,5,0xffffff,0xffffff)
+	const grid3= new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid3.rotation.x=0;grid3.position.y=1.9;grid3.position.z=-2;
         scene.add(grid3);
-	  const grid4= new THREE.GridHelper(1,5,0xffffff,0xffffff)
+	const grid4= new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid4.rotation.x=0;grid4.position.y=2.1;grid4.position.z=-2;
         scene.add(grid4);
-	  const grid5= new THREE.GridHelper(1,5,0xffffff,0xffffff)
+	const grid5= new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid5.rotation.x=0;grid5.position.y=2.3;grid5.position.z=-2;
         scene.add(grid5);
         const grid6 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid6.rotation.x=0;grid6.position.y=2.5;grid6.position.z=-2;
         scene.add(grid6);
 
-	  const grid7 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
+	const grid7 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid7.rotation.x=Math.PI/2;grid7.position.y=2;grid7.position.z=-1.5;
         scene.add(grid7);
-	  const grid8 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
+	const grid8 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
         grid8.rotation.x=Math.PI/2;grid8.position.y=2;grid8.position.z=-1.7;
         scene.add(grid8);
         const grid9 = new THREE.GridHelper(1,5,0xffffff,0xffffff);
@@ -92,7 +92,7 @@
         const plane = new THREE.Mesh( pgeometry, pmaterial );plane.rotation.x =-Math.PI/2;
         scene.add( plane );
  
-        document.body.appendChild(VRButton.createButton(renderer))
+        document.body.appendChild(VRButton.createButton(renderer));
 
     }
     function animate() {
