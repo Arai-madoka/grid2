@@ -27,7 +27,7 @@
         //カメラの作成
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         //カメラセット
-        camera.position.set(20, 30, 50);
+        camera.position.set( 0, 3.6, 8);
         camera.lookAt(new THREE.Vector3(0, 0, 0));
  
         //光源
@@ -46,9 +46,10 @@
         const controls = new OrbitControls(camera, document.body);
         controls.enableDamping = true;
         controls.dampingFactor = 0.2;
- 
-        // gridHelper 
-        const gridHelper = new THREE.GridHelper(10,5) //大きさ・分割数・センタラインcolor・マスカラ―
+	    
+        const size = 10;
+	const divisions = 5;
+        const gridHelper = new THREE.GridHelper(size,divisions,0xffffff,0xffffff)
         scene.add(gridHelper);
  
         document.body.appendChild(VRButton.createButton(renderer));
